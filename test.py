@@ -50,9 +50,9 @@ with torch.inference_mode():
 
     clusters = hkmg.hierarchical_kmeans_with_resampling(
         data=data_tensor,
-        n_clusters=[1000, 300],
-        n_levels=2,
-        sample_sizes=[1, 1],
+        n_clusters=[1000, 300], #TODO: adjust
+        n_levels=2, #TODO: adjust
+        sample_sizes=[1, 1], #TODO: adjust
         verbose=False,
     )
 
@@ -110,3 +110,31 @@ sampled_indices_as_int = sampled_indices.astype(int)
 sampled_points = data[sampled_indices_as_int]
 print("Sampled points")
 print(sampled_points.shape)
+print(sampled_points[0])
+print("Sampled indices")
+print(sampled_indices)
+
+print("Vergleich")
+print(sampled_indices[0])
+test_data = torch.load(data_directory + str(sampled_indices[0]) + '.pt')
+if test_data.ndim == 3:
+                loaded_data = test_data.reshape(test_data.shape[0], -1) 
+test_data = torch.tensor(test_data)
+# Reshape to torch.Size([151296])
+test_data = test_data.view(-1)
+print(test_data)
+
+print("Vergleich2")
+print('Image 0.pt')
+test_data2 = torch.load(data_directory + '0.pt')
+if test_data2.ndim == 3:
+                loaded_data2 = test_data2.reshape(test_data2.shape[0], -1) 
+test_data2 = torch.tensor(test_data2)
+# Reshape to torch.Size([151296])
+test_data2 = test_data2.view(-1)
+print(test_data2)
+
+print('Verify shape')
+print(sampled_points[0].shape)
+print(test_data.shape)
+print(test_data2.shape)
