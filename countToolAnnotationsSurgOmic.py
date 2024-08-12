@@ -101,7 +101,22 @@ def main():
         '100_percent_selected_image_paths.txt'
     ]
 
-    folder = 'clip_SurgOmicFeatures_no_test_images/'
+
+    folder = 'random_images_SurgOmic/'
+    tool_counts_over_time = []
+
+    for image_file in image_files:
+        images_file_path = os.path.join(folder, image_file)
+        tool_totals = process_images_file(images_file_path, annotations_file)
+        tool_counts_over_time.append(tool_totals)
+
+    save_path = 'plots/random_images_SurgOmic.png'
+    plot_tool_counts(tool_counts_over_time, save_path)
+
+
+
+
+    """ folder = 'clip_SurgOmicFeatures_no_test_images/'
     tool_counts_over_time = []
 
     for image_file in image_files:
@@ -152,7 +167,7 @@ def main():
         tool_counts_over_time.append(tool_totals)
 
     save_path = 'plots/endoViTAlex_SurgOmicFeatures_no_test_images.png'
-    plot_tool_counts(tool_counts_over_time, save_path)
+    plot_tool_counts(tool_counts_over_time, save_path) """
 
 if __name__ == '__main__':
     main()

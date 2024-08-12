@@ -102,7 +102,7 @@ def main():
 
 
 
-    folder = 'clip_Cholec80_no_test_images/'
+    folder = 'random_images_Cholec80/'
     tool_counts_over_time = []
     
     for image_file in image_files:
@@ -110,7 +110,7 @@ def main():
         tool_totals = process_images_file(images_file_path, tool_annotations_folder)
         tool_counts_over_time.append(tool_totals)
     
-    save_path = 'plots/clip_Cholec80_no_test_images.png'
+    save_path = 'plots/random_images_Cholec80.png'
     plot_tool_counts(tool_counts_over_time, save_path)
 
 
@@ -118,7 +118,7 @@ def main():
 
 
 
-    folder = 'dinoV2_Cholec80_no_test_images/'
+    """ folder = 'dinoV2_Cholec80_no_test_images/'
     tool_counts_over_time = []
     
     for image_file in image_files:
@@ -155,7 +155,7 @@ def main():
         tool_counts_over_time.append(tool_totals)
     
     save_path = 'plots/endoViTAlex_Cholec80_no_test_images.png'
-    plot_tool_counts(tool_counts_over_time, save_path)
+    plot_tool_counts(tool_counts_over_time, save_path) """
 
 
 
