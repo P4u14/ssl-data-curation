@@ -157,6 +157,7 @@ def main():
 
 
     """ folder = 'endoViT_Cholec80_no_test_images/'
+
     tool_counts_over_time = []
     
     for image_file in image_files:
