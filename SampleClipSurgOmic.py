@@ -55,6 +55,8 @@ def load_embeddings(directory):
             # print(filename)
             file_path = os.path.join(directory, filename)
             loaded_data = torch.load(file_path)
+            print("Tensor: " )
+            print(loaded_data)
             # Ensure the loaded tensor is 3D
             if loaded_data.ndim == 3:
                 loaded_data = loaded_data.reshape(loaded_data.shape[0], -1)  # Flatten the middle dimension
